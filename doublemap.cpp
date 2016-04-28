@@ -31,7 +31,7 @@ void add_to_vector(std::ifstream &reference_file, std::vector<std::string> &vect
 
 int main()
 {
-	//My custom data structure. Its a 2D array, where each array element is accessed by a string rather than an integer
+//A unique data structure. Its a 2D array, where each array element is accessed by a string rather than an integer
     std::map <std::string, std::map <std::string, unsigned int> > map;
 
     //create vector out of the brain structure names
@@ -40,7 +40,7 @@ int main()
     std::ifstream names("inputfiles/test_brain_names.txt");
     add_to_vector(names, vect);
 
-    //initialize the vector
+    //initialize the matrix
     for (uint64_t i=0; i<vect.size(); ++i) {
     	for (uint64_t j=0; j<vect.size(); ++j) {
     		map[vect[i]][vect[j]] = 0;
