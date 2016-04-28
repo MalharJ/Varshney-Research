@@ -1,3 +1,5 @@
+//This file serves to find the positions of duplicate lines in a text file
+
 //Include the libraries
 #include <algorithm>
 #include <vector>
