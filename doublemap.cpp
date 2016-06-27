@@ -36,7 +36,6 @@ int main()
 
     //create vector out of the brain structure names
     vector<string> vect;
-    //std::ifstream names("brain_names_updated_noduplicates.txt");
     std::ifstream names("inputfiles/test_brain_names.txt");
     add_to_vector(names, vect);
 
@@ -44,8 +43,6 @@ int main()
     for (uint64_t i=0; i<vect.size(); ++i) {
     	for (uint64_t j=0; j<vect.size(); ++j) {
     		map[vect[i]][vect[j]] = 0;
-    		//Debugging line here
-    		//cout<<vect[i]<<" ::: "<<vect[j]<<" ::: "<<map[vect[i]][vect[j]]<<endl;
     	}
     }
 
@@ -57,8 +54,6 @@ int main()
 
     //update the map if there are pairs
     for (uint64_t i=0; i<file_names.size(); ++i) {
-    	//Debugging line here
-    	//cout<<"File names : "<<file_names[i]<<endl;
     	//Read in the file 
     	std::ifstream val("inputfiles/datafiles/"+file_names[i]); 
 
@@ -69,8 +64,8 @@ int main()
 
     	for (uint64_t j=0; j<values.size()-1; ++j) {
     		for (uint64_t k=j+1; k<values.size(); ++k) {
-    			++map[values[j]][values[k]]; //cout<<__LINE__<<endl;
-    			++map[values[k]][values[j]]; //cout<<__LINE__<<endl;
+    			++map[values[j]][values[k]]; 
+    			++map[values[k]][values[j]]; 
     		}
     	}
     	val.close();
@@ -81,8 +76,6 @@ int main()
     //print it out to a csv file
     for (uint64_t i=0; i<vect.size(); ++i) {
     	for (uint64_t j=0; j<vect.size(); ++j) {
-    		//Debugging line here
-    		//cout<<vect[i]<<" - "<<vect[j]<<" : "<<map[vect[i]][vect[j]]<<endl;
     		cout<<map[vect[i]][vect[j]]<<" ";
     		out<<map[vect[i]][vect[j]]<<",";
     	}
